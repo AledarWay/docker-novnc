@@ -17,6 +17,8 @@ case $RUN_XTERM in
     ;;
 esac
 
-sed -i "s|8080 localhost:5900|${NOVNC_BIND}:${NOVNC_PORT} ${VNC_SERVER}|" /app/websockify.conf
+if [ -f /app/conf.d/websockify.conf ]; then
+    sed -i "s|8080 localhost:5900|${NOVNC_BIND}:${NOVNC_PORT} ${VNC_SERVER}|" /app/conf.d/websockify.conf
+fi
 
 exec supervisord -c /app/supervisord.conf

@@ -21,6 +21,9 @@ You can specify the following variables:
 * `DISPLAY_HEIGHT=<height>` (768)
 * `RUN_XTERM={yes|no}` (yes)
 * `RUN_FLUXBOX={yes|no}` (yes)
+* `NOVNC_PORT=<number>` (8080)
+* `NOVNC_BIND=<IP>` (0.0.0.0)
+* `VNC_SERVER={<address>}` (localhost:5900)
 
 ### Stand-alone Demo
 Run:
