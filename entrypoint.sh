@@ -1,8 +1,9 @@
 #!/bin/bash
 set -ex
 
-RUN_FLUXBOX=${RUN_FLUXBOX:-yes}
-RUN_XTERM=${RUN_XTERM:-yes}
+NOVNC_PORT=${NOVNC_PORT:-8080}
+NOVNC_BIND=${NOVNC_BIND:-0.0.0.0}
+VNC_SERVER=${VNC_SERVER:-localhost:5900}
 
 case $RUN_FLUXBOX in
   false|no|n|0)
@@ -15,5 +16,7 @@ case $RUN_XTERM in
     rm -f /app/conf.d/xterm.conf
     ;;
 esac
+
+sed -i "s|8080 localhost:5900|${NOVNC_BIND}:${NOVNC_PORT} ${VNC_SERVER}|" /app/websockify.conf
 
 exec supervisord -c /app/supervisord.conf
