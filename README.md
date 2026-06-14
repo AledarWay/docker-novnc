@@ -1,3 +1,5 @@
+Added NOVNC_PORT, NOVNC_BIND and VNC_SERVER variables under theasp/novnc
+
 # noVNC Display Container
 ```
 ```
